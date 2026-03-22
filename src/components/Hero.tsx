@@ -190,7 +190,8 @@ export default function Hero() {
             variants={fadeUp}
             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-[#cbd5e1]"
           >
-            A Web & Mobile{" "}
+            A Web & Mobile Social Media Manager
+            <br />
             <motion.span
               className="gradient-text font-black inline-block"
               whileHover={{ scale: 1.05 }}
