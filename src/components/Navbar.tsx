@@ -39,62 +39,66 @@ export default function Navbar() {
     applyTheme(next);
   }
 
-  const themeIcon = theme === "dark" ? <Moon size={16} /> : theme === "light" ? <Sun size={16} /> : <Monitor size={16} />;
+  const themeIcon =
+    theme === "dark" ? <Moon size={16} /> : theme === "light" ? <Sun size={16} /> : <Monitor size={16} />;
 
   const navLinks = [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
     { label: "Skills", href: "#skills" },
     { label: "Certs", href: "#certificates" },
+    { label: "LinkedIn", href: "#linkedin" },
     { label: "Contact", href: "#contact" },
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "py-3" : "py-4"
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "py-2" : "py-3"}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div
-          className={`navbar-pill led-border-outer rounded-2xl px-4 sm:px-6 py-3 flex items-center justify-between transition-all duration-500 ${
-            scrolled ? "shadow-2xl shadow-black/40" : ""
+          className={`navbar-pill led-border-outer rounded-2xl px-4 sm:px-5 py-2.5 flex items-center justify-between transition-all duration-500 ${
+            scrolled ? "shadow-2xl shadow-black/50" : ""
           }`}
         >
-          {/* Logo */}
-          <a
-            href="#home"
-            className="font-black text-xl tracking-tight gradient-text-gold"
-          >
-            MB<span className="text-[#7c3aed]">.</span>
+          {/* Logo — avatar + text */}
+          <a href="#home" className="flex items-center gap-2.5 group">
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-[#c9a84c]/40 group-hover:border-[#c9a84c] transition-colors duration-300 shrink-0">
+              <img
+                src="/profile.png"
+                alt="Mashoto"
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+            <span className="font-black text-lg tracking-tight gradient-text-gold">
+              MB<span className="text-[#7c3aed]">.</span>
+            </span>
           </a>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-[#94a3b8] hover:text-[#c9a84c] transition-colors duration-200 relative group"
+                className="relative px-3 py-1.5 text-sm font-medium text-[#94a3b8] hover:text-white transition-all duration-300 rounded-lg hover:bg-white/5 group"
               >
                 {link.label}
-                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#c9a84c] group-hover:w-full transition-all duration-300" />
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#c9a84c] to-[#7c3aed] group-hover:w-4/5 transition-all duration-300 rounded-full" />
               </a>
             ))}
           </div>
 
           {/* Right actions */}
           <div className="flex items-center gap-2">
-            {/* LinkedIn — always visible */}
+            {/* LinkedIn pill */}
             <a
               href="https://www.linkedin.com/in/mashoto-rababalela"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Connect on LinkedIn"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[#c9a84c] border border-[#c9a84c]/30 hover:border-[#c9a84c]/80 hover:bg-[#c9a84c]/10 transition-all duration-200 text-xs font-semibold"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-[#c9a84c] border border-[#c9a84c]/30 hover:border-[#c9a84c] hover:bg-[#c9a84c]/10 transition-all duration-300 text-xs font-bold hover:shadow-lg hover:shadow-[#c9a84c]/10"
             >
-              <Linkedin size={14} />
-              <span className="hidden sm:inline">LinkedIn</span>
+              <Linkedin size={13} />
+              LinkedIn
             </a>
 
             {/* Theme toggle */}
@@ -119,26 +123,28 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {isOpen && (
-          <div className="md:hidden mt-2 navbar-pill rounded-2xl p-4 flex flex-col gap-3">
+          <div className="md:hidden mt-2 navbar-pill rounded-2xl p-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-sm font-medium text-[#94a3b8] hover:text-[#c9a84c] transition-colors py-1"
+                className="text-sm font-medium text-[#94a3b8] hover:text-[#c9a84c] hover:bg-white/5 transition-colors py-2 px-3 rounded-lg"
               >
                 {link.label}
               </a>
             ))}
-            <a
-              href="https://www.linkedin.com/in/mashoto-rababalela"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm font-medium text-[#c9a84c] hover:text-[#d4b96a] transition-colors py-1"
-            >
-              <Linkedin size={14} />
-              Connect on LinkedIn
-            </a>
+            <div className="border-t border-[#1e2a4a] mt-2 pt-3">
+              <a
+                href="https://www.linkedin.com/in/mashoto-rababalela"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm font-bold text-[#c9a84c] hover:text-[#d4b96a] transition-colors py-2 px-3 rounded-lg hover:bg-[#c9a84c]/5"
+              >
+                <Linkedin size={14} />
+                Connect on LinkedIn
+              </a>
+            </div>
           </div>
         )}
       </div>
