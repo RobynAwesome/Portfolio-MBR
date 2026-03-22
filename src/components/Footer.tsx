@@ -184,20 +184,27 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 border-t border-[#1e2a4a]/50 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-xs text-[#475569]">
+      <div
+        className="mx-4 sm:mx-6 rounded-2xl px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 mt-4"
+        style={{
+          background: "linear-gradient(135deg, rgba(13,18,40,0.9) 0%, rgba(17,25,48,0.9) 50%, rgba(13,18,40,0.9) 100%)",
+          border: "1px solid rgba(201,168,76,0.15)",
+        }}
+      >
+        <p className="text-xs text-[#64748b] font-medium">
           &copy; {year} Mashoto Bayne Rababalela · All rights reserved
         </p>
-        <p className="text-xs text-[#475569]">
+        <p className="text-xs text-[#64748b] font-medium">
           Built by{" "}
-          <a
+          <motion.a
             href="https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#c9a84c] hover:underline"
+            className="text-[#c9a84c] font-bold"
+            whileHover={{ color: "#d4b96a", textShadow: "0 0 10px rgba(201,168,76,0.4)" }}
           >
             RobynAwesome
-          </a>
+          </motion.a>
         </p>
       </div>
     </footer>
