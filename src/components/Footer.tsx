@@ -9,10 +9,8 @@ export default function Footer() {
       {/* Business card section */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 mb-10">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           whileHover={{
             scale: 1.02,
             boxShadow: "0 0 80px rgba(201,168,76,0.12), 0 0 160px rgba(124,58,237,0.08)",
