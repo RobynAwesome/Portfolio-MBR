@@ -42,8 +42,8 @@ export default function TransparentImage({ src, alt, className = "", threshold =
         );
         if (dist < threshold) {
           data[i + 3] = 0; // transparent
-        } else if (dist < threshold * 2) {
-          data[i + 3] = Math.round(((dist - threshold) / threshold) * 255);
+        } else if (dist < threshold * 1.4) {
+          data[i + 3] = Math.round(((dist - threshold) / (threshold * 0.4)) * 255);
         }
       }
       ctx.putImageData(imageData, 0, 0);

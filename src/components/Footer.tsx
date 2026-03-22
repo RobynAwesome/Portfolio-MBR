@@ -1,20 +1,18 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { Linkedin, Mail, MapPin, Briefcase, Phone } from "lucide-react";
+import { motion } from "framer-motion";
+import { Linkedin, Mail, MapPin, Briefcase, Phone, Globe, Code2 } from "lucide-react";
 
 export default function Footer() {
   const year = new Date().getFullYear();
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
-    <footer className="relative pt-16 pb-8" ref={ref}>
+    <footer className="relative pt-16 pb-8">
       {/* Business card section */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 mb-10">
         <motion.div
-          initial={{ opacity: 0, y: 60, scale: 0.9, rotateX: 10 }}
-          animate={inView ? { opacity: 1, y: 0, scale: 1, rotateX: 0 } : {}}
-          transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0 }}
+          transition={{ duration: 0.8 }}
           whileHover={{
             scale: 1.02,
             boxShadow: "0 0 80px rgba(201,168,76,0.12), 0 0 160px rgba(124,58,237,0.08)",
@@ -29,12 +27,12 @@ export default function Footer() {
         >
           {/* Gold corner accents */}
           <motion.div
-            animate={inView ? { opacity: [0.4, 0.8, 0.4] } : {}}
+            animate={{ opacity: [0.4, 0.8, 0.4] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             className="absolute top-0 left-0 w-24 h-24 border-t-2 border-l-2 border-[#c9a84c]/40 rounded-tl-3xl"
           />
           <motion.div
-            animate={inView ? { opacity: [0.4, 0.8, 0.4] } : {}}
+            animate={{ opacity: [0.4, 0.8, 0.4] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
             className="absolute bottom-0 right-0 w-24 h-24 border-b-2 border-r-2 border-[#c9a84c]/40 rounded-br-3xl"
           />
@@ -51,12 +49,7 @@ export default function Footer() {
 
           <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-stretch gap-0">
             {/* Left — avatar + name */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex flex-col items-center justify-center gap-4 p-8 sm:w-56 sm:border-r sm:border-[#1e2a4a]"
-            >
+            <div className="flex flex-col items-center justify-center gap-4 p-8 sm:w-56 sm:border-r sm:border-[#1e2a4a]">
               {/* Avatar with animated gold ring */}
               <div className="relative">
                 <motion.div
@@ -100,107 +93,115 @@ export default function Footer() {
                   Rababalela
                 </motion.p>
               </div>
-            </motion.div>
+            </div>
 
             {/* Right — contact details */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.5 }}
-              className="flex-1 flex flex-col justify-center gap-4 p-8"
-            >
-              <motion.p
-                whileHover={{ letterSpacing: "0.15em" }}
-                className="text-[#c9a84c] text-xs font-bold uppercase tracking-widest mb-1 cursor-default"
-              >
+            <div className="flex-1 flex flex-col justify-center gap-4 p-8">
+              <p className="text-[#c9a84c] text-xs font-bold uppercase tracking-widest mb-1">
                 Business Card
-              </motion.p>
+              </p>
               <div className="flex flex-col gap-3">
-                {[
-                  { icon: <Briefcase size={14} />, primary: "Growth Consultant", secondary: "Clickteams.io", color: "#c9a84c" },
-                  { icon: <Linkedin size={14} />, primary: "Mashoto Bayne Rababalela", href: "https://www.linkedin.com/in/mashoto-bayne-rababalela-836a47139/", color: "#a78bfa" },
-                  { icon: <Mail size={14} />, primary: "mashrababalela@gmail.com", href: "mailto:mashrababalela@gmail.com", color: "#c9a84c" },
-                  { icon: <MapPin size={14} />, primary: "Cape Town, Western Cape, SA", color: "#64748b" },
-                  { icon: <Phone size={14} />, primary: "Available on LinkedIn", color: "#64748b" },
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    whileHover={{ x: 6 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                    className="flex items-center gap-3"
+                <div className="flex items-center gap-3">
+                  <Briefcase size={14} className="text-[#c9a84c] shrink-0" />
+                  <div>
+                    <p className="text-white text-sm font-semibold">Growth Consultant</p>
+                    <p className="text-[#64748b] text-xs">Clickteams.io</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Code2 size={14} className="text-[#7c3aed] shrink-0" />
+                  <div>
+                    <p className="text-white text-sm font-semibold">Full-Stack Developer</p>
+                    <p className="text-[#64748b] text-xs">React · Node.js · TypeScript · Python</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Linkedin size={14} className="text-[#a78bfa] shrink-0" />
+                  <a
+                    href="https://www.linkedin.com/in/mashoto-bayne-rababalela-836a47139/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-[#a78bfa] hover:text-white transition-colors font-medium"
                   >
-                    <motion.span
-                      whileHover={{ rotate: 360, scale: 1.3 }}
-                      transition={{ duration: 0.4 }}
-                      style={{ color: item.color }}
-                      className="shrink-0"
-                    >
-                      {item.icon}
-                    </motion.span>
-                    {item.href ? (
-                      <motion.a
-                        href={item.href}
-                        target={item.href.startsWith("http") ? "_blank" : undefined}
-                        rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                        whileHover={{ color: item.color }}
-                        className="text-sm text-[#e2e8f0] transition-colors font-medium"
-                      >
-                        {item.primary}
-                      </motion.a>
-                    ) : (
-                      <div>
-                        <p className="text-white text-sm font-semibold">{item.primary}</p>
-                        {item.secondary && <p className="text-[#64748b] text-xs">{item.secondary}</p>}
-                      </div>
-                    )}
-                  </motion.div>
-                ))}
+                    Mashoto Bayne Rababalela
+                  </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail size={14} className="text-[#c9a84c] shrink-0" />
+                  <a
+                    href="mailto:mashrababalela@gmail.com"
+                    className="text-sm text-[#e2e8f0] hover:text-[#c9a84c] transition-colors"
+                  >
+                    mashrababalela@gmail.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Globe size={14} className="text-[#3b82f6] shrink-0" />
+                  <p className="text-sm text-[#94a3b8]">Engineering Services · B2B Sales · Coaching</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <MapPin size={14} className="text-[#64748b] shrink-0" />
+                  <p className="text-sm text-[#94a3b8]">Cape Town, Western Cape, South Africa</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Phone size={14} className="text-[#64748b] shrink-0" />
+                  <p className="text-sm text-[#94a3b8]">Available on LinkedIn</p>
+                </div>
               </div>
 
-              {/* LinkedIn CTA */}
-              <motion.a
-                href="https://www.linkedin.com/in/mashoto-bayne-rababalela-836a47139/"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 0 30px rgba(201,168,76,0.3)",
-                  y: -2,
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="mt-2 inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-2.5 rounded-xl font-bold text-xs bg-gradient-to-r from-[#c9a84c] to-[#d4b96a] text-[#080b1a] transition-all shadow-lg shadow-[#c9a84c]/15"
-              >
-                <Linkedin size={13} />
-                View Full LinkedIn Profile
-              </motion.a>
-            </motion.div>
+              {/* CTA buttons */}
+              <div className="flex flex-wrap gap-3 mt-2">
+                <motion.a
+                  href="https://www.linkedin.com/in/mashoto-bayne-rababalela-836a47139/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 0 30px rgba(201,168,76,0.3)",
+                    y: -2,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl font-bold text-xs bg-gradient-to-r from-[#c9a84c] to-[#d4b96a] text-[#080b1a] transition-all shadow-lg shadow-[#c9a84c]/15"
+                >
+                  <Linkedin size={13} />
+                  View LinkedIn Profile
+                </motion.a>
+                <motion.a
+                  href="mailto:mashrababalela@gmail.com"
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 0 30px rgba(124,58,237,0.2)",
+                    y: -2,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl font-bold text-xs border border-[#7c3aed]/40 text-[#a78bfa] transition-all"
+                >
+                  <Mail size={13} />
+                  Send Email
+                </motion.a>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
 
       {/* Bottom bar */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className="max-w-6xl mx-auto px-4 sm:px-6 border-t border-[#1e2a4a]/50 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
-      >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 border-t border-[#1e2a4a]/50 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
         <p className="text-xs text-[#475569]">
           &copy; {year} Mashoto Bayne Rababalela · All rights reserved
         </p>
         <p className="text-xs text-[#475569]">
           Built by{" "}
-          <motion.a
-            href="https://github.com/RobynAwesome"
+          <a
+            href="https://www.linkedin.com/in/kholofelo-robyn-rababalela-7a26273b6"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ color: "#d4b96a", scale: 1.05 }}
-            className="text-[#c9a84c] hover:underline inline-block"
+            className="text-[#c9a84c] hover:underline"
           >
             RobynAwesome
-          </motion.a>
+          </a>
         </p>
-      </motion.div>
+      </div>
     </footer>
   );
 }

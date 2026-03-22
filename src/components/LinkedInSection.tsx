@@ -9,6 +9,7 @@ import {
   ThumbsUp,
   MessageCircle,
   Send,
+  Mail,
   Globe,
   Award,
   TrendingUp,
@@ -338,6 +339,21 @@ export default function LinkedInSection() {
               >
                 <Send size={13} />
                 Send Message
+              </motion.a>
+
+              {/* Email CTA */}
+              <motion.a
+                href="mailto:mashrababalela@gmail.com"
+                whileHover={{
+                  scale: 1.03,
+                  borderColor: "#c9a84c",
+                  backgroundColor: "rgba(201,168,76,0.1)",
+                }}
+                whileTap={{ scale: 0.97 }}
+                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-bold text-xs mt-3 border border-[#c9a84c]/30 text-[#c9a84c] transition-all duration-300"
+              >
+                <Mail size={13} />
+                Send Email
               </motion.a>
             </div>
           </motion.div>

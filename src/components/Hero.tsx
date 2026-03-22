@@ -105,7 +105,7 @@ export default function Hero() {
         variants={stagger}
         initial="hidden"
         animate={controls}
-        className="relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-12 max-w-7xl mx-auto px-4 w-full"
+        className="relative z-10 flex flex-col lg:flex-row items-center gap-6 lg:gap-8 max-w-[1400px] mx-auto px-4 w-full"
       >
         {/* Profile image — LEFT, massive */}
         <motion.div
@@ -137,14 +137,14 @@ export default function Hero() {
 
           {/* Transparent profile image — MASSIVE */}
           <motion.div
-            className="relative w-[320px] h-[320px] sm:w-[450px] sm:h-[450px] md:w-[550px] md:h-[550px] lg:w-[650px] lg:h-[650px]"
+            className="relative w-[400px] h-[400px] sm:w-[550px] sm:h-[550px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px]"
             whileHover={{ scale: 1.05, rotate: 2 }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
           >
             <TransparentImage
               src="/profile.png"
               alt="Mashoto Bayne Rababalela"
-              threshold={45}
+              threshold={60}
               className="w-full h-full object-contain drop-shadow-2xl"
             />
           </motion.div>
