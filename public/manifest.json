@@ -1,0 +1,17 @@
+{
+  "name": "Mashoto Bayne Portfolio",
+  "short_name": "Mashoto",
+  "description": "Full-Stack Developer, Growth Consultant & Electrical Engineer based in Cape Town, SA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080b1a",
+  "theme_color": "#c9a84c",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
