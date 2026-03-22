@@ -86,10 +86,15 @@ export default function Navbar() {
               />
             </motion.div>
             <motion.span
-              className="font-black text-lg tracking-tight gradient-text-gold"
+              className="font-black text-lg tracking-tight gradient-text-gold relative"
               whileHover={{ textShadow: "0 0 20px rgba(201,168,76,0.5)" }}
             >
               Mashoto<span className="text-[#7c3aed]">.</span>
+              <motion.span
+                animate={{ scale: [1, 1.3, 1], opacity: [1, 0.7, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="absolute -top-0.5 -right-3 w-2.5 h-2.5 rounded-full bg-[#22c55e] border-2 border-[#0d1228]"
+              />
             </motion.span>
           </motion.a>
 

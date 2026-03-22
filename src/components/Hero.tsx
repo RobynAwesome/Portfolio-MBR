@@ -1,7 +1,6 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { ArrowDown, Mail, Linkedin } from "lucide-react";
-import TransparentImage from "./TransparentImage";
 
 const ease: [number, number, number, number] = [0.23, 1, 0.32, 1];
 
@@ -105,55 +104,49 @@ export default function Hero() {
         variants={stagger}
         initial="hidden"
         animate={controls}
-        className="relative z-10 flex flex-col lg:flex-row items-center gap-6 lg:gap-8 max-w-[1400px] mx-auto px-4 w-full"
+        className="relative z-10 flex flex-col lg:flex-row items-center gap-4 lg:gap-0 max-w-[1400px] mx-auto px-4 w-full"
       >
-        {/* Profile image — LEFT, massive */}
+        {/* Profile image — LEFT, massive, clipped at bottom */}
         <motion.div
           variants={slideInLeft}
-          className="relative flex-shrink-0"
+          className="relative flex-shrink-0 lg:-mr-32"
         >
-          {/* Animated glow ring behind image */}
+          {/* Subtle glow behind — small tight ring */}
           <motion.div
-            className="absolute inset-[-40px] rounded-full"
+            className="absolute inset-[10%] rounded-full pointer-events-none"
             animate={{
               boxShadow: [
-                "0 0 60px rgba(201,168,76,0.2), 0 0 120px rgba(124,58,237,0.1)",
-                "0 0 80px rgba(201,168,76,0.3), 0 0 160px rgba(124,58,237,0.15)",
-                "0 0 60px rgba(201,168,76,0.2), 0 0 120px rgba(124,58,237,0.1)",
+                "0 0 40px rgba(201,168,76,0.15), 0 0 80px rgba(124,58,237,0.08)",
+                "0 0 60px rgba(201,168,76,0.25), 0 0 120px rgba(124,58,237,0.12)",
+                "0 0 40px rgba(201,168,76,0.15), 0 0 80px rgba(124,58,237,0.08)",
               ],
             }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
 
-          {/* Orbiting ring */}
+          {/* Profile image — clipped to hide bottom artifacts */}
           <motion.div
-            className="absolute inset-[-8px] rounded-full border-2 border-transparent"
-            style={{
-              borderImage: "linear-gradient(var(--angle, 0deg), #c9a84c, transparent, #7c3aed, transparent) 1",
-            }}
-            animate={{ rotate: [0, 360] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-          />
-
-          {/* Transparent profile image — MASSIVE */}
-          <motion.div
-            className="relative w-[400px] h-[400px] sm:w-[550px] sm:h-[550px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px]"
-            whileHover={{ scale: 1.05, rotate: 2 }}
+            className="relative w-[400px] h-[500px] sm:w-[500px] sm:h-[620px] md:w-[600px] md:h-[750px] lg:w-[750px] lg:h-[850px] overflow-hidden"
+            whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
+            style={{
+              maskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
+            }}
           >
-            <TransparentImage
+            <img
               src="/profile.png"
               alt="Mashoto Bayne Rababalela"
-              threshold={60}
-              className="w-full h-full object-contain drop-shadow-2xl"
+              className="w-full h-full object-cover object-top drop-shadow-2xl"
+              style={{ filter: "grayscale(0.3) contrast(1.1)" }}
             />
           </motion.div>
         </motion.div>
 
-        {/* Text content — RIGHT */}
+        {/* Text content — RIGHT, overlapping image slightly */}
         <motion.div
           variants={slideInRight}
-          className="flex flex-col items-center lg:items-start text-center lg:text-left"
+          className="flex flex-col items-center lg:items-start text-center lg:text-left relative z-20"
         >
           {/* Greeting */}
           <motion.p
@@ -168,7 +161,7 @@ export default function Hero() {
             </motion.span>
           </motion.p>
 
-          {/* Name — word by word animation */}
+          {/* Name */}
           <motion.h1
             variants={fadeUp}
             className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] mb-4"
@@ -192,7 +185,7 @@ export default function Hero() {
             </motion.span>
           </motion.h1>
 
-          {/* Subtitle with typewriter-like stagger */}
+          {/* Subtitle */}
           <motion.h2
             variants={fadeUp}
             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-[#cbd5e1]"
@@ -207,7 +200,7 @@ export default function Hero() {
             </motion.span>
           </motion.h2>
 
-          {/* Tagline with animated separator dots */}
+          {/* Tagline */}
           <motion.p
             variants={fadeUp}
             className="text-[#64748b] text-sm sm:text-base max-w-lg mb-8 leading-relaxed"
@@ -236,7 +229,7 @@ export default function Hero() {
             )}
           </motion.p>
 
-          {/* CTAs with heavy hover animations */}
+          {/* CTAs */}
           <motion.div
             variants={fadeUp}
             className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8"

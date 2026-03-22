@@ -187,7 +187,7 @@ export default function LinkedInSection() {
             }}
           >
             {/* Gold/purple border glow */}
-            <div className="absolute inset-0 rounded-3xl" style={{
+            <div className="absolute inset-0 rounded-3xl pointer-events-none" style={{
               padding: "1px",
               background: "linear-gradient(135deg, #c9a84c 0%, #7c3aed 50%, #c9a84c 100%)",
               mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
