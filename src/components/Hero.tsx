@@ -105,16 +105,16 @@ export default function Hero() {
         variants={stagger}
         initial="hidden"
         animate={controls}
-        className="relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-16 max-w-6xl mx-auto px-4 w-full"
+        className="relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-12 max-w-7xl mx-auto px-4 w-full"
       >
-        {/* Profile image — LEFT, x2.5 bigger */}
+        {/* Profile image — LEFT, massive */}
         <motion.div
           variants={slideInLeft}
           className="relative flex-shrink-0"
         >
           {/* Animated glow ring behind image */}
           <motion.div
-            className="absolute inset-[-20px] rounded-full"
+            className="absolute inset-[-40px] rounded-full"
             animate={{
               boxShadow: [
                 "0 0 60px rgba(201,168,76,0.2), 0 0 120px rgba(124,58,237,0.1)",
@@ -135,9 +135,9 @@ export default function Hero() {
             transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
           />
 
-          {/* Transparent profile image — BIG */}
+          {/* Transparent profile image — MASSIVE */}
           <motion.div
-            className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[420px] lg:h-[420px]"
+            className="relative w-[320px] h-[320px] sm:w-[450px] sm:h-[450px] md:w-[550px] md:h-[550px] lg:w-[650px] lg:h-[650px]"
             whileHover={{ scale: 1.05, rotate: 2 }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
           >
@@ -257,7 +257,7 @@ export default function Hero() {
               Get In Touch
             </motion.a>
             <motion.a
-              href="https://www.linkedin.com/in/mashoto-rababalela"
+              href="https://www.linkedin.com/in/mashoto-bayne-rababalela-836a47139/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{

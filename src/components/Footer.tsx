@@ -5,7 +5,7 @@ import { Linkedin, Mail, MapPin, Briefcase, Phone } from "lucide-react";
 export default function Footer() {
   const year = new Date().getFullYear();
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <footer className="relative pt-16 pb-8" ref={ref}>
@@ -118,7 +118,7 @@ export default function Footer() {
               <div className="flex flex-col gap-3">
                 {[
                   { icon: <Briefcase size={14} />, primary: "Growth Consultant", secondary: "Clickteams.io", color: "#c9a84c" },
-                  { icon: <Linkedin size={14} />, primary: "linkedin.com/in/mashoto-rababalela", href: "https://www.linkedin.com/in/mashoto-rababalela", color: "#a78bfa" },
+                  { icon: <Linkedin size={14} />, primary: "Mashoto Bayne Rababalela", href: "https://www.linkedin.com/in/mashoto-bayne-rababalela-836a47139/", color: "#a78bfa" },
                   { icon: <Mail size={14} />, primary: "mashrababalela@gmail.com", href: "mailto:mashrababalela@gmail.com", color: "#c9a84c" },
                   { icon: <MapPin size={14} />, primary: "Cape Town, Western Cape, SA", color: "#64748b" },
                   { icon: <Phone size={14} />, primary: "Available on LinkedIn", color: "#64748b" },
@@ -159,7 +159,7 @@ export default function Footer() {
 
               {/* LinkedIn CTA */}
               <motion.a
-                href="https://www.linkedin.com/in/mashoto-rababalela"
+                href="https://www.linkedin.com/in/mashoto-bayne-rababalela-836a47139/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{

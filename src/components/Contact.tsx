@@ -140,7 +140,7 @@ export default function Contact() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 relative z-10">
             <motion.a
-              href="https://www.linkedin.com/in/mashoto-rababalela"
+              href="https://www.linkedin.com/in/mashoto-bayne-rababalela-836a47139/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{
@@ -202,7 +202,7 @@ export default function Contact() {
                   icon: <Linkedin size={16} />,
                   label: "LinkedIn",
                   value: "Mashoto Bayne Rababalela",
-                  href: "https://www.linkedin.com/in/mashoto-rababalela",
+                  href: "https://www.linkedin.com/in/mashoto-bayne-rababalela-836a47139/",
                   color: "#8b5cf6",
                 },
                 {

@@ -18,7 +18,7 @@ import {
   Repeat2,
 } from "lucide-react";
 
-const LINKEDIN_URL = "https://www.linkedin.com/in/mashoto-rababalela";
+const LINKEDIN_URL = "https://www.linkedin.com/in/mashoto-bayne-rababalela-836a47139/";
 
 const previewPosts = [
   {

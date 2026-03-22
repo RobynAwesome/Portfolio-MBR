@@ -125,7 +125,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             {/* LinkedIn pill */}
             <motion.a
-              href="https://www.linkedin.com/in/mashoto-rababalela"
+              href="https://www.linkedin.com/in/mashoto-bayne-rababalela-836a47139/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Connect on LinkedIn"
@@ -196,7 +196,7 @@ export default function Navbar() {
               ))}
               <div className="border-t border-[#1e2a4a] mt-2 pt-3">
                 <motion.a
-                  href="https://www.linkedin.com/in/mashoto-rababalela"
+                  href="https://www.linkedin.com/in/mashoto-bayne-rababalela-836a47139/"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ x: 8 }}
